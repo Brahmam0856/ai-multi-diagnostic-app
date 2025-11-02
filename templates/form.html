@@ -1,0 +1,79 @@
+<!-- templates/form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Services - AI Diagnostic</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1587502536263-3d3f6d0a84f0?auto=format&fit=crop&w=1400&q=60');
+      background-size: cover;
+      background-position: center;
+    }
+    .form-wrap { backdrop-filter: blur(6px); background: rgba(255,255,255,0.88); margin-top: 34px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Diagnostic Services</h1>
+      <p class="small">Select a service and fill out the form to receive a quick, demo prediction.</p>
+    </div>
+
+    <div class="form-wrap">
+      <form method="POST" action="{{ url_for('predict') }}">
+        <div class="form-grid">
+          <div class="form-input">
+            <label for="name">Full name</label>
+            <input type="text" name="name" id="name" placeholder="Patient name" required>
+          </div>
+
+          <div class="form-input">
+            <label for="disease">Select Service</label>
+            <select name="disease" id="disease" required>
+              <option value="heart">Heart Disease Screening</option>
+              <option value="breast">Breast Cancer Screening</option>
+            </select>
+          </div>
+
+          <div id="heart-fields" class="form-input">
+            <label>Age</label>
+            <input type="number" name="age" min="1" max="120" value="55">
+            <label>Chest Pain (0–3)</label>
+            <input type="number" name="chest_pain" min="0" max="3" value="1">
+            <label>Cholesterol (mg/dL)</label>
+            <input type="number" name="cholesterol" min="100" max="500" value="220">
+          </div>
+
+          <div id="breast-fields" class="form-input" style="display:none;">
+            <label>Breast features (30 values, comma-separated)</label>
+            <textarea name="breast_features" placeholder="e.g. 17.99,10.38,122.8,... (30 numbers)"></textarea>
+            <small class="small">Leave empty to use dataset mean features (recommended for demo).</small>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" type="submit">Get Prediction</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const select = document.getElementById('disease');
+    const heartFields = document.getElementById('heart-fields');
+    const breastFields = document.getElementById('breast-fields');
+
+    select.addEventListener('change', function() {
+      if (this.value === 'heart') {
+        heartFields.style.display = 'block';
+        breastFields.style.display = 'none';
+      } else {
+        heartFields.style.display = 'none';
+        breastFields.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>

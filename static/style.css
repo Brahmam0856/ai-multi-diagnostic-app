@@ -1,0 +1,132 @@
+Stylish, colorful background, responsive layout, cards for dashboard, beautiful form styling.
+/* static/style.css */
+
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Roboto, Arial, sans-serif; }
+
+body {
+  background-size: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background: url('{{ url_for("static", filename=""C:\Users\dokup\OneDrive\Desktop\ai-multi-diagnostic-app\static\images\dashboard-bg.jpg.jpg"") }}') no-repeat center center;
+  background-size: contain;   /* <= keeps full image visible */
+  background-color: #d9dadc;  /* fallback color behind image */
+  min-height: 100vh;
+  margin: 0;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Dashboard */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.header h1 { font-size: 40px; color: #0a2540; margin-bottom: 6px; }
+.header p { color: #4b5563; }
+
+/* Cards */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+.card {
+  background: linear-gradient(180deg, #ffffff, #f1fbff);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 10px 25px rgba(10, 37, 64, 0.06);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.card .icon {
+  width: 110px;
+  height: 110px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow: 0 6px 18px rgba(10,37,64,0.06);
+}
+.card h3 { font-size: 20px; color: #083d66; margin-bottom: 8px; }
+.card p { color: #475569; line-height: 1.4; }
+
+/* Main CTA */
+.cta {
+  text-align: center;
+  margin-top: 14px;
+}
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg,#0ea5a3,#0b7285);
+  color: #fff;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-size: 18px;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(11,114,133,0.18);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 18px 30px rgba(11,114,133,0.22); }
+
+/* Form page */
+.form-wrap {
+  max-width: 900px;
+  margin: 18px auto;
+  background: linear-gradient(180deg,#ffffff, #f9fbff);
+  padding: 26px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(10,37,64,0.06);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-input {
+  display:flex;
+  flex-direction: column;
+  gap: 8px;
+}
+label { font-weight: 600; color: #0b3b57; }
+input[type="text"], input[type="number"], textarea, select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #dbeafe;
+  background: #fff;
+  outline: none;
+  font-size: 14px;
+}
+textarea { min-height: 120px; resize: vertical; }
+.form-actions { margin-top: 14px; text-align: right; }
+
+/* result page */
+.result-card {
+  margin: 24px auto;
+  max-width: 720px;
+  background: linear-gradient(180deg,#ffffff, #f0fff9);
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(10,37,64,0.06);
+  text-align: center;
+}
+.result-card h2 { color: #07324a; }
+.result-card p { color: #0f3b4a; margin: 8px 0; font-weight:600; }
+.small { color:#475569; font-weight:400; }
+
+/* Responsive */
+@media (max-width: 880px) {
+  .grid { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .card { flex-direction: row; }
+}

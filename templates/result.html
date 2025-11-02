@@ -1,0 +1,39 @@
+<!-- templates/result.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Diagnosis Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Diagnosis Result</h1>
+      <p class="small">Result for <strong>{{ name }}</strong></p>
+    </div>
+
+    <div class="result-card">
+      <h2>{{ result }}</h2>
+      <p>Probability: <strong>{{ probability }}%</strong></p>
+      <p class="small" style="margin-top:12px;">{{ advice }}</p>
+
+      <div style="margin-top:18px;">
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+
+        <!-- Download form posts to /download-report (placeholder server-side generator) -->
+        <form method="POST" action="{{ url_for('download_report') }}" style="display:inline-block; margin-left:12px;">
+          <input type="hidden" name="name" value="{{ name }}">
+          <input type="hidden" name="disease" value="{{ disease }}">
+          <input type="hidden" name="result" value="{{ result }}">
+          <input type="hidden" name="probability" value="{{ probability }}">
+          <input type="hidden" name="advice" value="{{ advice }}">
+          <button class="btn" type="submit" style="background: linear-gradient(90deg,#6b7280,#374151);">Download Report</button>
+        </form>
+
+        <a class="btn" href="{{ url_for('home') }}" style="margin-left:12px; background: linear-gradient(90deg,#10b981,#059669);">Back to Dashboard</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

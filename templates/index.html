@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI Diagnostic Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+  body {<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AI Diagnostic Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>AI Diagnostic Dashboard</h1>
+      <p>Fast, friendly screening tools for Heart Disease and Breast Cancer (demo).</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="icon">
+          <img src="https://img.icons8.com/fluency/96/heart-with-pulse.png" alt="heart" width="72">
+        </div>
+        <div>
+          <h3>Heart Disease</h3>
+          <p>Quick screening for heart disease risk using age, chest pain, and cholesterol inputs. This is a demo model — for testing and learning only.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="icon">
+          <img src="https://img.icons8.com/fluency/96/breast-cancer-ribbon.png" alt="breast" width="72">
+        </div>
+        <div>
+          <h3>Breast Cancer</h3>
+          <p>Breast cancer classifier trained on sklearn demo dataset. You can paste 30 numeric features or leave blank to use default values.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="{{ url_for('services') }}">Services</a>
+    </div>
+  </div>
+</body>
+</html>
+
+    min-height: 100vh;
+    margin: 0;
+    background: url('{{ url_for("static", filename="images/dashboard-bg.jpg") }}') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* DARK overlay so text becomes readable */
+  .overlay {
+    background: rgba(200, 240, 240, 0.45);
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 40px;
+  }
+</style>
+</head>
+<body>
+  <div class="overlay">   <!-- overlay wrapper -->
+    <div class="container">
+      <div class="header">
+        <h1 style="color:rgb(54, 53, 53);">AI Diagnostic Dashboard</h1>
+        <p style="color:#57d0e2;">Quick demo screening tools. For testing and educational use only.</p>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="icon">
+            <img src="https://img.icons8.com/fluency/96/heart-with-pulse.png" alt="heart" width="64">
+          </div>
+          <div>
+            <h3>Heart Disease</h3>
+            <p>Screening model uses age, chest pain, and cholesterol.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <img src="https://img.icons8.com/fluency/96/breast-cancer-ribbon.png" alt="breast" width="64">
+          </div>
+          <div>
+            <h3>Breast Cancer</h3>
+            <p>Classifier trained on public dataset. Uses 30 numeric features.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn" href="{{ url_for('services') }}">Services</a>
+      </div>
+    </div>
+  </div> <!-- end overlay -->
+</body>
+</html>
